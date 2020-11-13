@@ -11,9 +11,9 @@ Node:
 > npm install noble-base58check
 
 ```js
-import * as b58c from 'noble-base58check';
+import * as b58c from "noble-base58check";
 
-const hash = '1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i';
+const hash = "1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i";
 (async () => {
   const bytes = await b58c.decode(hash);
   const sameHash = await b58c.encode(bytes);
@@ -25,12 +25,71 @@ Deno:
 
 ```typescript
 import { assertEquals } from "https://deno.land/x/testing/asserts.ts";
-import * as b58c from 'https://deno.land/x/base58check/mod.ts';
+import * as b58c from "https://deno.land/x/base58check/mod.ts";
 
-const hash = '1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i';
+const hash = "1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i";
 const bytes = await b58c.decode(hash);
 const sameHash = await b58c.encode(bytes);
 assertEquals(sameHash, hash);
+```
+
+## API
+
+- [`encode(payload)`](#encodepayload)
+- [`decode(string)`](#decodestring)
+- [`decodeUnsafe(string)`](#decodeunsafestring)
+- [`decodeRaw(buffer)`](#decoderawbuffer)
+- [`getChecksum(buffer)`](#getchecksumbuffer)
+- [`encodePlain(payload)`](#encodeplainpayload)
+- [`decodePlain(string)`](#decodeplainstring)
+- [`decodePlainUnsafe(string)`](#decodeplainunsafestring)
+
+##### `encode(payload)`
+
+```typescript
+function encode(payload: Uint8Array): Promise<string>;
+```
+
+##### `decode(string)`
+
+```typescript
+function decode(string: string): Promise<Uint8Array>;
+```
+
+##### `decodeUnsafe(string)`
+
+```typescript
+function decodeUnsafe(string: string): Promise<Uint8Array | undefined>;
+```
+
+##### `decodeRaw(buffer)`
+
+```typescript
+function decodeRaw(buffer: Uint8Array): Promise<Uint8Array | undefined>;
+```
+
+##### `getChecksum(buffer)`
+
+```typescript
+function getChecksum(buffer: Uint8Array): Promise<Uint8Array>;
+```
+
+##### `encodePlain(payload)`
+
+```typescript
+function encodePlain(payload: Uint8Array): Promise<string>;
+```
+
+##### `decodePlain(string)`
+
+```typescript
+function decodePlain(string: string): Promise<Uint8Array>;
+```
+
+##### `decodePlainUnsafe(string)`
+
+```typescript
+function decodePlainUnsafe(string: string): Promise<Uint8Array | undefined>;
 ```
 
 ## Inspiration
