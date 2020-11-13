@@ -17,7 +17,7 @@ const hash = '1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i';
 (async () => {
   const bytes = await b58c.decode(hash);
   const sameHash = await b58c.encode(bytes);
-  assert.equal(sameHash, hash);
+  assert.strictEqual(sameHash, hash);
 })();
 ```
 
