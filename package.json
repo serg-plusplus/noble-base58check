@@ -1,0 +1,50 @@
+{
+  "name": "noble-base58check",
+  "version": "0.1.0",
+  "description": "Noble base58check. Fast, native-first port of bs58check module.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "build": "tsc -d",
+    "lint": "prettier --check index.ts",
+    "test": "jest"
+  },
+  "jest": {
+    "testRegex": "/test/.*.ts",
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "useStderr": true,
+    "bail": 2
+  },
+  "author": "Serhii Pashchenko (https://serh11p.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/serh11p/noble-base58check.git"
+  },
+  "homepage": "https://github.com/serh11p/noble-base58check#readme",
+  "bugs": {
+    "url": "https://github.com/serh11p/noble-base58check/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "@types/node": "^12.12.36",
+    "jest": "^25.4.0",
+    "prettier": "^2.0.5",
+    "ts-jest": "^25.4.0",
+    "typescript": "^3.8.3"
+  },
+  "keywords": [
+    "base58check",
+    "bs58check",
+    "base58",
+    "bs58",
+    "bitcoin",
+    "cryptography",
+    "security"
+  ]
+}
