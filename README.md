@@ -8,24 +8,27 @@ Port of [bs58check](https://www.npmjs.com/package/bs58check) module.
 
 Node:
 
-> npm install noble-base58check
+```
+npm install noble-base58check
+```
 
 ```js
 import * as b58c from "noble-base58check";
+import { strictEqual } from "assert";
 
 const hash = "1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i";
 (async () => {
   const bytes = await b58c.decode(hash);
   const sameHash = await b58c.encode(bytes);
-  assert.strictEqual(sameHash, hash);
+  strictEqual(sameHash, hash);
 })();
 ```
 
 Deno:
 
 ```typescript
-import { assertEquals } from "https://deno.land/x/testing/asserts.ts";
 import * as b58c from "https://deno.land/x/base58check/mod.ts";
+import { assertEquals } from "https://deno.land/x/testing/asserts.ts";
 
 const hash = "1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i";
 const bytes = await b58c.decode(hash);
