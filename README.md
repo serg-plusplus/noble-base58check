@@ -38,20 +38,14 @@ assertEquals(sameHash, hash);
 
 ## API
 
-- [`encode(payload)`](#encodepayload)
 - [`decode(string)`](#decodestring)
+- [`encode(payload)`](#encodepayload)
 - [`decodeUnsafe(string)`](#decodeunsafestring)
-- [`decodeRaw(buffer)`](#decoderawbuffer)
-- [`getChecksum(buffer)`](#getchecksumbuffer)
 - [`encodePlain(payload)`](#encodeplainpayload)
 - [`decodePlain(string)`](#decodeplainstring)
 - [`decodePlainUnsafe(string)`](#decodeplainunsafestring)
-
-##### `encode(payload)`
-
-```typescript
-function encode(payload: Uint8Array): Promise<string>;
-```
+- [`decodeRaw(buffer)`](#decoderawbuffer)
+- [`getChecksum(buffer)`](#getchecksumbuffer)
 
 ##### `decode(string)`
 
@@ -59,29 +53,26 @@ function encode(payload: Uint8Array): Promise<string>;
 function decode(string: string): Promise<Uint8Array>;
 ```
 
+- `string: string` - string to decode with Base58Check
+- Returns `Promise<Uint8Array>`: decoded bytes
+
+##### `encode(payload)`
+
+```typescript
+function encode(payload: Uint8Array): Promise<string>;
+```
+
+- `payload: Uint8Array` - payload to encode with Base58Check
+- Returns `Promise<string>`: encoded string
+
 ##### `decodeUnsafe(string)`
 
 ```typescript
 function decodeUnsafe(string: string): Promise<Uint8Array | undefined>;
 ```
 
-##### `decodeRaw(buffer)`
-
-```typescript
-function decodeRaw(buffer: Uint8Array): Promise<Uint8Array | undefined>;
-```
-
-##### `getChecksum(buffer)`
-
-```typescript
-function getChecksum(buffer: Uint8Array): Promise<Uint8Array>;
-```
-
-##### `encodePlain(payload)`
-
-```typescript
-function encodePlain(payload: Uint8Array): Promise<string>;
-```
+- `string: string` - string to decode with Base58Check
+- Returns `Promise<Uint8Array | undefined>`: `Promise<Uint8Array>` if success; otherwise `Promise<undefined>`
 
 ##### `decodePlain(string)`
 
@@ -89,11 +80,44 @@ function encodePlain(payload: Uint8Array): Promise<string>;
 function decodePlain(string: string): Promise<Uint8Array>;
 ```
 
+- `string: string` - string to decode with plain Base58 (without check)
+- Returns `Promise<Uint8Array>`: decoded bytes
+
+##### `encodePlain(payload)`
+
+```typescript
+function encodePlain(payload: Uint8Array): Promise<string>;
+```
+
+- `payload: Uint8Array` - payload to encode with plain Base58 (without check)
+- Returns `Promise<string>`: encoded string
+
 ##### `decodePlainUnsafe(string)`
 
 ```typescript
 function decodePlainUnsafe(string: string): Promise<Uint8Array | undefined>;
 ```
+
+- `string: string` - string to decode with plain Base58 (without check)
+- Returns `Promise<Uint8Array | undefined>`: `Promise<Uint8Array>` if success; otherwise `Promise<undefined>`
+
+##### `decodeRaw(buffer)`
+
+```typescript
+function decodeRaw(buffer: Uint8Array): Promise<Uint8Array | undefined>;
+```
+
+- `buffer: Uint8Array` - payload to encode with plain Base58 (without check)
+- Returns `Promise<Uint8Array | undefined>`: `Promise<Uint8Array>` payload without last 4 bytes if checksum valid; otherwise `Promise<undefined>`
+
+##### `getChecksum(buffer)`
+
+```typescript
+function getChecksum(buffer: Uint8Array): Promise<Uint8Array>;
+```
+
+- `buffer: Uint8Array` - payload
+- Returns `Promise<Uint8Array>`: checksum (double sha256)
 
 ## Inspiration
 
