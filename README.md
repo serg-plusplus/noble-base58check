@@ -36,6 +36,8 @@ const sameHash = await b58c.encode(bytes);
 assertEquals(sameHash, hash);
 ```
 
+Library: [https://deno.land/x/base58check](https://deno.land/x/base58check)
+
 ## API
 
 - [`decode(string)`](#decodestring)
