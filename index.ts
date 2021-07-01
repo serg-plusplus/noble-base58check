@@ -190,6 +190,11 @@ export async function getChecksum(buffer: Uint8Array) {
   return utils.sha256(buffer).then(utils.sha256);
 }
 
+// We may fall back to Node if we don't detect Deno/Browser.
+// Make TypeScript OK with us checking these global variables:
+declare var process: any;
+declare var require: any;
+
 export const utils = {
   sha256: async (message: Uint8Array): Promise<Uint8Array> => {
     if (typeof window == "object" && "crypto" in window) {
