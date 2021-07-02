@@ -1,6 +1,6 @@
 {
   "name": "noble-base58check",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Noble base58check. Typed, native, 0-dep port of bs58check module.",
   "main": "index.js",
   "files": [
